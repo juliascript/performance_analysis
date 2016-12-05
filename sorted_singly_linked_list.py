@@ -1,4 +1,5 @@
-
+import time
+start_time = time.time()
 
 class Node(object):
 
@@ -25,6 +26,7 @@ class LinkedListBinarySearchable(object):
 		if iterable:
 			for item in iterable:
 				self.append(item)
+        return time.time() - start_time
 	# create a list that represents the linked list,
 	# each index contains a pointer to the node 
 	#  updated on append and delete
@@ -175,9 +177,11 @@ class LinkedListBinarySearchable(object):
 		current = self.head
 		while current is not None:
 			if current.data == item:
-				return True
+				# return True
+                return time.time() - start_time
 			current = current.next
-		return False
+		# return False
+        return time.time() - start_time
 
 	# is it possible to provide the conditions for sorting?
 	# if I use lambda, probably 

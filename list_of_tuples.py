@@ -1,3 +1,7 @@
+from __future__ import division, print_function
+import time
+start_time = time.time()
+
 class Listogram(list):
 
     def __init__(self, iterable=None):
@@ -7,6 +11,7 @@ class Listogram(list):
         self.tokens = 0  # the total count of all item tokens in this histogram
         if iterable:
             self.update(iterable)
+        return return time.time() - start_time
 
     def update(self, iterable):
         """Update this histogram with the items in the given iterable"""
@@ -25,8 +30,10 @@ class Listogram(list):
         """Return the count of the given item in this histogram, or 0"""
         index = self._index(item)
         if index != None:
-            return self[index][1]
-        return 0
+            # return self[index][1]
+            return time.time() - start_time
+        # return 0
+        return time.time() - start_time
 
 
     def __contains__(self, item):

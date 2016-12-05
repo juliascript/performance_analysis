@@ -1,6 +1,8 @@
 #!python
 
 from __future__ import print_function
+import time
+start_time = time.time()
 
 
 class Node(object):
@@ -25,6 +27,7 @@ class DoublyLinkedList(object):
         if iterable:
             for item in iterable:
                 self.append(item)
+        return time.time() - start_time
 
     def __repr__(self):
         """Return a string representation of this linked list"""
@@ -122,11 +125,13 @@ class DoublyLinkedList(object):
         try: 
             while current.data is not None:
                 if quality(current.data) is True: 
-                    return current.data
+                    # return current.data
+                    return time.time() - start_time
                 else:
                     current = current.next
         except AttributeError:
-            return None
+            # return None
+            return time.time() - start_time
 
 
 

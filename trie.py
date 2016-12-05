@@ -1,3 +1,6 @@
+import time
+start_time = time.time()
+
 endOfWord = "$"
 
 def generateTrieFromWordsArray(words):
@@ -19,7 +22,8 @@ def generateTrieFromWordsArrayAndCountRepititions(words):
 			currentDict[endOfWord] = currentDict[endOfWord] + 1
 		else: 
 			currentDict[endOfWord] = 1
-	return root
+	# return root
+	return time.time() - start_time
 
 def isWordPresentInTrie(trie, word):
 	currentDict = trie
@@ -27,11 +31,14 @@ def isWordPresentInTrie(trie, word):
 		if letter in currentDict:
 			currentDict = currentDict[letter]
 		else: 
-			return False
+			# return False
+			return time.time() - start_time
 	if endOfWord in currentDict:
-		return True
+		# return True
+		return time.time() - start_time
 	else: 
-		return False 
+		# return False 
+		return time.time() - start_time
 
 def offerPossibleCompletionsToStringInTrie(trie, string):
 	currentDict = trie

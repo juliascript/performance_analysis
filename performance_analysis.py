@@ -1,6 +1,7 @@
 import dictionary, list_of_tuples, sorted_list_of_tuples
 import hashtable, singly_linked_list, sorted_singly_linked_list
 import doubly_linked_list, trie, binary_search_tree
+import large_sample_text, small_sample_text
 # import time
 
 def analyseGenerationOfDictionary(textfile):
@@ -132,84 +133,138 @@ def analyseCountFunctionOfTrie(textfile):
 if __name__ == "__main__":
 
 	# todo: edit performance analysis for small and large texts
-	# todo: update all files to return ints instead of the actual values for averaging
+	# todo: fix bug of having the init function of some files return an int instead of a histogram (will affect the testing of the count function)
 	# todo: implement and test sorted linked list
 	# todo: implement and test binary search tree
-	# todo: update function calls to correct functions in this file
 	# todo: implement binary search on all sorted data structures 
 
-	smallTextfile = "..."
-	largeTextfile = "..."
+	smallTextfile = small_sample_text
+	largeTextfile = large_sample_text
 
 	print "Analysing dictionary ... \n\n"
-	avgDict = analyseGenerationOfDictionary(textfile)
+	print "With a small text file ... \n\n"
+	avgDict = analyseGenerationOfDictionary(smallTextfile)
 	print "--- Generation of dictionary - %s seconds ---" % avgDict
-	avgDict = analyseCountFunctionOfDictionary(textfile)
+	avgDict = analyseCountFunctionOfDictionary(smallTextfile)
+	print "--- Count function of dictionary - %s seconds --- \n" % avgDict
+	print "With a large text file ... \n\n"
+	avgDict = analyseGenerationOfDictionary(largeTextfile)
+	print "--- Generation of dictionary - %s seconds ---" % avgDict
+	avgDict = analyseCountFunctionOfDictionary(largeTextfile)
 	print "--- Count function of dictionary - %s seconds ---" % avgDict
+
 
 	print "\n\n"
 
 	print "Analysing list of tuples ... \n\n"
-	avgSortedTuples = analyseGenerationOfListOfTuples(textfile)
-	print "--- Generation of sorted list of tuples - %s seconds ---" % avgSortedTuples
-	avgSortedTuples = analyseCountFunctionOfListOfTuples(textfile)
-	print "--- Count function of sorted list of tuples - %s seconds ---" % avgSortedTuples
+	print "With a small text file ... \n\n"
+	avgTuples = analyseGenerationOfListOfTuples(smallTextfile)
+	print "--- Generation of sorted list of tuples - %s seconds ---" % avgTuples
+	avgTuples = analyseCountFunctionOfListOfTuples(smallTextfile)
+	print "--- Count function of sorted list of tuples - %s seconds --- \n" % avgTuples
+	print "With a large text file ... \n\n"
+	avgTuples = analyseGenerationOfListOfTuples(largeTextfile)
+	print "--- Generation of sorted list of tuples - %s seconds ---" % avgTuples
+	avgTuples = analyseCountFunctionOfListOfTuples(largeTextfile)
+	print "--- Count function of sorted list of tuples - %s seconds ---" % avgTuples
 
 	print "\n\n"
 
 	print "Analysing sorted list of tuples ... \n\n"
-	avgSortedTuples = analyseGenerationOfSortedListOfTuples(textfile)
+	print "With a small text file ... \n\n"
+	avgSortedTuples = analyseGenerationOfSortedListOfTuples(smallTextfile)
 	print "--- Generation of sorted list of tuples - %s seconds ---" % avgSortedTuples
-	avgSortedTuples = analyseCountFunctionOfSortedListOfTuples(textfile)
+	avgSortedTuples = analyseCountFunctionOfSortedListOfTuples(smallTextfile)
+	print "--- Count function of sorted list of tuples - %s seconds --- \n" % avgSortedTuples
+	print "With a large text file ... \n\n"
+	avgSortedTuples = analyseGenerationOfSortedListOfTuples(largeTextfile)
+	print "--- Generation of sorted list of tuples - %s seconds ---" % avgSortedTuples
+	avgSortedTuples = analyseCountFunctionOfSortedListOfTuples(largeTextfile)
 	print "--- Count function of sorted list of tuples - %s seconds ---" % avgSortedTuples
 
 	print "\n\n"
 
 	print "Analysing hash table ... \n\n"
-	avgHashtable = analyseGenerationOfHashTable(textfile)
+	print "With a small text file ... \n\n"
+	avgHashtable = analyseGenerationOfHashTable(smallTextfile)
 	print "--- Generation of sorted list of tuples - %s seconds ---" % avgHashtable
-	avgHashtable = analyseCountFunctionOfHashTable(textfile)
-	print "--- Count function of sorted list of tuples - %s seconds ---" % avgHashtable
+	avgHashtable = analyseCountFunctionOfHashTable(smallTextfile)
+	print "--- Count function of sorted list of tuples - %s seconds --- \n" % avgHashtable
+	print "With a large text file ... \n\n"
+	avgHashtable = analyseGenerationOfHashTable(largeTextfile)
+	print "--- Generation of sorted list of tuples - %s seconds ---" % avgHashtable
+	avgHashtable = analyseCountFunctionOfHashTable(largeTextfile)
+	print "--- Count function of sorted list of tuples - %s seconds --- \n" % avgHashtable
 
 	print "\n\n"
 
 	print "Analysing singly linked list ... \n\n"
-	avgHashtable = analyseGenerationOfSinglyLinkedList(textfile)
-	print "--- Generation of sorted list of tuples - %s seconds ---" % avgHashtable
-	avgHashtable = analyseCountFunctionOfSinglyLinkedList(textfile)
-	print "--- Count function of sorted list of tuples - %s seconds ---" % avgHashtable
+	print "With a small text file ... \n\n"
+	avgSinglyLinkedList = analyseGenerationOfSinglyLinkedList(smallTextfile)
+	print "--- Generation of sorted list of tuples - %s seconds ---" % avgSinglyLinkedList
+	avgSinglyLinkedList = analyseCountFunctionOfSinglyLinkedList(smallTextfile)
+	print "--- Count function of sorted list of tuples - %s seconds --- \n" % avgSinglyLinkedList
+	print "With a large text file ... \n\n"
+	avgSinglyLinkedList = analyseGenerationOfSinglyLinkedList(largeTextfile)
+	print "--- Generation of sorted list of tuples - %s seconds ---" % avgSinglyLinkedList
+	avgSinglyLinkedList = analyseCountFunctionOfSinglyLinkedList(largeTextfile)
+	print "--- Count function of sorted list of tuples - %s seconds --- \n" % avgSinglyLinkedList
 
 	print "\n\n"
 
 	# print "Analysing sorted singly linked list ... \n\n"
-	# avgHashtable = analyseGenerationOfSortedSinglyLinkedList(textfile)
-	# print "--- Generation of sorted list of tuples - %s seconds ---" % avgHashtable
-	# avgHashtable = analyseCountFunctionOfSortedSinglyLinkedList(textfile)
-	# print "--- Count function of sorted list of tuples - %s seconds ---" % avgHashtable
+	# print "With a small text file ... \n\n"
+	# avgSortedSinglyLinkedList = analyseGenerationOfSortedSinglyLinkedList(smallTextfile)
+	# print "--- Generation of sorted list of tuples - %s seconds ---" % avgSortedSinglyLinkedList
+	# avgSortedSinglyLinkedList = analyseCountFunctionOfSortedSinglyLinkedList(smallTextfile)
+	# print "--- Count function of sorted list of tuples - %s seconds --- \n" % avgSortedSinglyLinkedList
+	# print "With a large text file ... \n\n"
+	# avgSortedSinglyLinkedList = analyseGenerationOfSortedSinglyLinkedList(largeTextfile)
+	# print "--- Generation of sorted list of tuples - %s seconds ---" % avgSortedSinglyLinkedList
+	# avgSortedSinglyLinkedList = analyseCountFunctionOfSortedSinglyLinkedList(largeTextfile)
+	# print "--- Count function of sorted list of tuples - %s seconds --- \n" % avgSortedSinglyLinkedList
 
 	# print "\n\n"
 
 	print "Analysing doubly linked list ... \n\n"
-	avgHashtable = analyseGenerationOfDoublyLinkedList(textfile)
-	print "--- Generation of sorted list of tuples - %s seconds ---" % avgHashtable
-	avgHashtable = analyseCountFunctionOfDoublyLinkedList(textfile)
-	print "--- Count function of sorted list of tuples - %s seconds ---" % avgHashtable
+	print "With a small text file ... \n\n"
+	avgDoublyLinkedList = analyseGenerationOfDoublyLinkedList(smallTextfile)
+	print "--- Generation of sorted list of tuples - %s seconds ---" % avgDoublyLinkedList
+	avgDoublyLinkedList = analyseCountFunctionOfDoublyLinkedList(smallTextfile)
+	print "--- Count function of sorted list of tuples - %s seconds --- \n" % avgDoublyLinkedList
+	print "With a large text file ... \n\n"
+	avgDoublyLinkedList = analyseGenerationOfDoublyLinkedList(largeTextfile)
+	print "--- Generation of sorted list of tuples - %s seconds ---" % avgDoublyLinkedList
+	avgDoublyLinkedList = analyseCountFunctionOfDoublyLinkedList(largeTextfile)
+	print "--- Count function of sorted list of tuples - %s seconds ---" % avgDoublyLinkedList
 
 	print "\n\n"
 
 	print "Analysing trie ... \n\n"
-	avgHashtable = analyseGenerationOfTrie(textfile)
-	print "--- Generation of sorted list of tuples - %s seconds ---" % avgHashtable
-	avgHashtable = analyseCountFunctionOfTrie(textfile)
-	print "--- Count function of sorted list of tuples - %s seconds ---" % avgHashtable
+	print "With a small text file ... \n\n"
+	avgTrie = analyseGenerationOfTrie(smallTextfile)
+	print "--- Generation of sorted list of tuples - %s seconds ---" % avgTrie
+	avgTrie = analyseCountFunctionOfTrie(smallTextfile)
+	print "--- Count function of sorted list of tuples - %s seconds --- \n" % avgTrie
+	print "With a large text file ... \n\n"
+	avgTrie = analyseGenerationOfTrie(largeTextfile)
+	print "--- Generation of sorted list of tuples - %s seconds ---" % avgTrie
+	avgTrie = analyseCountFunctionOfTrie(largeTextfile)
+	print "--- Count function of sorted list of tuples - %s seconds ---" % avgTrie
 
 	print "\n\n"
 
 	# print "Analysing binary search tree ... \n\n"
-	# avgHashtable = analyseGenerationOfHashTable(textfile)
-	# print "--- Generation of sorted list of tuples - %s seconds ---" % avgHashtable
-	# avgHashtable = analyseCountFunctionOfHashTable(textfile)
-	# print "--- Count function of sorted list of tuples - %s seconds ---" % avgHashtable
+	# print "With a small text file ... \n\n"
+	# avgBinarySearchTree = analyseGenerationOfHashTable(smallTextfile)
+	# print "--- Generation of sorted list of tuples - %s seconds ---" % avgBinarySearchTree
+	# avgBinarySearchTree = analyseCountFunctionOfHashTable(smallTextfile)
+	# print "--- Count function of sorted list of tuples - %s seconds --- \n" % avgBinarySearchTree
+	# print "With a large text file ... \n\n"
+	# avgBinarySearchTree = analyseGenerationOfHashTable(smallTextfile)
+	# print "--- Generation of sorted list of tuples - %s seconds ---" % avgBinarySearchTree
+	# avgBinarySearchTree = analyseCountFunctionOfHashTable(smallTextfile)
+	# print "--- Count function of sorted list of tuples - %s seconds ---" % avgBinarySearchTree
 
 	# print "\n\n"
 

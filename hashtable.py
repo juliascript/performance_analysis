@@ -1,6 +1,8 @@
 #!python
 
 from linkedlist import LinkedList
+import time
+start_time = time.time()
 
 
 class HashTable(object):
@@ -10,6 +12,7 @@ class HashTable(object):
 
         Θ(n) running time to initialize n empty linked lists"""
         self.buckets = [LinkedList() for i in range(init_size)]
+        return time.time() - start_time
 
     def __repr__(self):
         """Return a string representation of this hash table
@@ -68,7 +71,8 @@ class HashTable(object):
         bucket = self.buckets[bucketIndex]
         data = bucket.find(lambda node: node[0] == key)
         if data is not None:
-            return data[1]
+            # return data[1]
+            return time.time() - start_time
 
 
             # current = bucket.head
@@ -78,7 +82,8 @@ class HashTable(object):
             #         return current.data[1]
             #     current = current.next
 
-        raise KeyError
+        # raise KeyError
+        return time.time() - start_time
 
     def set(self, key, value):
         """Insert or update the given key with its associated value
