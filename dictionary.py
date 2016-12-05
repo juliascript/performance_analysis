@@ -24,12 +24,16 @@ def generateHistogramFromFile(textfile):
 
 	# function called zip --> tuple
 	# hash function used to implement dictionaries
-	print("--- %s seconds ---" % (time.time() - start_time))
-	return histogram
+	# print("--- %s seconds ---" % (time.time() - start_time))
+	# return histogram
+	return time.time() - start_time
 
 def count(word, histogram):
-	print("--- %s seconds ---" % (time.time() - start_time))
-	return histogram[word]
+	# print("--- %s seconds ---" % (time.time() - start_time))
+	num = histogram[word]
+	# return num
+	return time.time() - start_time
 
 if __name__ == "__main__":
 	generateHistogramFromFile(sys.argv[1])
+
