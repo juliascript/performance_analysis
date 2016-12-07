@@ -1,18 +1,18 @@
 import sys
-import time
+import time, operator
 start_time = time.time()
 
-def generateHistogramFromFile(textfile):
-	# open text file 
-	f = open(textfile, 'r')
+def generateHistogramFromFile(wordsArray):
+	# # open text file 
+	# f = open(textfile, 'r')
 
-	# read the file
-	fileContent = f.read()
+	# # read the file
+	# fileContent = f.read()
 
-	# fileContent = fileContent.encode('utf-8', 'ignore')
+	# # fileContent = fileContent.encode('utf-8', 'ignore')
 
-	# generate array from file content
-	wordsArray = fileContent.strip().replace('\n', ' ').split(' ')
+	# # generate array from file content
+	# wordsArray = fileContent.strip().replace('\n', ' ').split(' ')
 
 	# generate histogram from words array
 	histogram = {}
@@ -37,3 +37,4 @@ def count(word, histogram):
 
 if __name__ == "__main__":
 	generateHistogramFromFile(sys.argv[1])
+

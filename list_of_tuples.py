@@ -11,7 +11,6 @@ class Listogram(list):
         self.tokens = 0  # the total count of all item tokens in this histogram
         if iterable:
             self.update(iterable)
-        return return time.time() - start_time
 
     def update(self, iterable):
         """Update this histogram with the items in the given iterable"""
@@ -50,3 +49,5 @@ class Listogram(list):
             if self[i][0] == target:
                 return i 
         return None
+
+

@@ -22,8 +22,7 @@ def generateTrieFromWordsArrayAndCountRepititions(words):
 			currentDict[endOfWord] = currentDict[endOfWord] + 1
 		else: 
 			currentDict[endOfWord] = 1
-	# return root
-	return time.time() - start_time
+	return root
 
 def isWordPresentInTrie(trie, word):
 	currentDict = trie
@@ -64,11 +63,3 @@ def printCompletionsFromNode(trie, string):
 			# function calls itself to handle all possible completions 
 			printCompletionsFromNode(currentDict[letter], word)
 
-
-
-arrayOfWords = ['hello', 'hey', 'what', 'when', 'why']
-wordsTrie = generateTrieFromWordsArray(arrayOfWords)
-# print wordsTrie['h']['e']
-# print isWordPresentInTrie(wordsTrie, 'hello')
-# print isWordPresentInTrie(wordsTrie, 'hellow')
-print offerPossibleCompletionsToStringInTrie(wordsTrie, 'w')

@@ -27,7 +27,6 @@ class DoublyLinkedList(object):
         if iterable:
             for item in iterable:
                 self.append(item)
-        return time.time() - start_time
 
     def __repr__(self):
         """Return a string representation of this linked list"""
@@ -132,32 +131,3 @@ class DoublyLinkedList(object):
         except AttributeError:
             # return None
             return time.time() - start_time
-
-
-
-def test_doubly_linked_list():
-    ll = DoublyLinkedList()
-    print(ll)
-    ll.append('A')
-    print(ll)
-    ll.append('B')
-    print(ll)
-    ll.append('C')
-    print(ll)
-    print('head: ' + str(ll.head))
-    print('tail: ' + str(ll.tail))
-    print(ll.length())
-
-    ll.delete('A')
-    print(ll)
-    ll.delete('C')
-    print(ll)
-    ll.delete('B')
-    print(ll)
-    print('head: ' + str(ll.head))
-    print('tail: ' + str(ll.tail))
-    print(ll.length())
-
-
-if __name__ == '__main__':
-    test_doubly_linked_list()

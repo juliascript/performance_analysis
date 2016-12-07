@@ -15,7 +15,7 @@ class Node(object):
 
 class LinkedListBinarySearchable(object):
 
-	def __init__(self, **iterable=None, **conditions=None):
+	def __init__(self, iterable=None):
 		self.head = None
 		self.tail = None
 		self.list = []
@@ -185,35 +185,3 @@ class LinkedListBinarySearchable(object):
 
 	# is it possible to provide the conditions for sorting?
 	# if I use lambda, probably 
-
-
-
-def test_linked_list():
-	data = ['c', 'a', 'b']
-    ll = LinkedList(data)
-    print(ll)
-    ll.append('d')
-    print(ll)
-    ll.append('b')
-    print(ll)
-    ll.append('a')
-    print(ll)
-    ll.append('d')
-    print(ll)
-    print('head: ' + str(ll.head))
-    print('tail: ' + str(ll.tail))
-    print(ll.length())
-
-    ll.delete('A')
-    print(ll)
-    ll.delete('C')
-    print(ll)
-    ll.delete('B')
-    print(ll)
-    print('head: ' + str(ll.head))
-    print('tail: ' + str(ll.tail))
-    print(ll.length())
-
-
-if __name__ == '__main__':
-    test_linked_list()

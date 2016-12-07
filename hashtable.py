@@ -1,6 +1,6 @@
 #!python
 
-from linkedlist import LinkedList
+from singly_linked_list import LinkedList
 import time
 start_time = time.time()
 
@@ -10,26 +10,26 @@ class HashTable(object):
     def __init__(self, init_size=8):
         """Initialize this hash table with the given initial size
 
-        Θ(n) running time to initialize n empty linked lists"""
+        th(n) running time to initialize n empty linked lists"""
         self.buckets = [LinkedList() for i in range(init_size)]
-        return time.time() - start_time
+
 
     def __repr__(self):
         """Return a string representation of this hash table
 
-        Θ(n^2) running time to loop over entire list within list to print"""
+        th(n^2) running time to loop over entire list within list to print"""
         return 'HashTable({})'.format(self.length())
 
     def _bucket_index(self, key):
         """Return the bucket index where the given key would be stored
 
-        Θ(1) running time to do operations (unless hash function is not constant time)"""
+        th(1) running time to do operations (unless hash function is not constant time)"""
         return hash(key) % len(self.buckets)
 
     def length(self):
         """Return the length of this hash table by traversing its buckets
 
-        Θ(n) running time to loop over entire bucket list"""
+        th(n) running time to loop over entire bucket list"""
         count = 0
 
         for bucket in self.buckets:
@@ -41,7 +41,7 @@ class HashTable(object):
     def contains(self, key):
         """Return True if this hash table contains the given key, or False
 
-        Best case running time: Ω(1) if key is near the head
+        Best case running time: om(1) if key is near the head
        Worst case running time: O(n) if key is the tail or not in the list"""
         # TODO: Check if the given key exists in a bucket
         
@@ -63,7 +63,7 @@ class HashTable(object):
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError
 
-         Best case running time: Ω(1) if item is near the head of the list.
+         Best case running time: om(1) if item is near the head of the list.
        Worst case running time: O(n) if item is near the tail of the list or
        not present and we need to loop through all n nodes in the list"""
         # TODO: Check if the given key exists and return its associated value
@@ -85,10 +85,10 @@ class HashTable(object):
         # raise KeyError
         return time.time() - start_time
 
-    def set(self, key, value):
+    def set(self, key):
         """Insert or update the given key with its associated value
 
-        Best case running time: Ω(1) if item is near the head of the list.
+        Best case running time: om(1) if item is near the head of the list.
        Worst case running time: O(n) if item is near the tail of the list or
        not present and we need to loop through all n nodes in the list"""
         # TODO: Insert or update the given key-value entry into a bucket
@@ -97,13 +97,17 @@ class HashTable(object):
         if bucket.find(lambda node: node[0] == key):
             for node in bucket:
                 if node.data[0] == key:
+                    value = node.data[1] + 1 
                     bucket.delete(node.data)    
-        bucket.append((key, value))
+                    bucket.append((key, value))
+        else: 
+            value = 1
+            bucket.append((key, value))
 
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError
 
-        Best case running time: Ω(1) if item is near the head of the list.
+        Best case running time: om(1) if item is near the head of the list.
        Worst case running time: O(n) if item is near the tail of the list or
        not present and we need to loop through all n nodes in the list"""
         # TODO: Find the given key and delete its entry if found
@@ -130,7 +134,7 @@ class HashTable(object):
     def keys(self):
         """Return a list of all keys in this hash table
 
-        Θ(n^2) running time to loop over entire list within list"""
+        th(n^2) running time to loop over entire list within list"""
         keys = []
         for bucket in self.buckets:
             for node in bucket:
@@ -141,7 +145,7 @@ class HashTable(object):
     def values(self):
         """Return a list of all values in this hash table
 
-        Θ(n^2) running time to loop over entire list within list"""
+        th(n^2) running time to loop over entire list within list"""
         # TODO: Collect all values in each of the buckets
         values = []
         for bucket in self.buckets:
@@ -154,7 +158,7 @@ class HashTable(object):
         """Return a list of all key, value pairs in the hash table
 
 
-        Θ(n^2) running time to loop over entire list within list"""
+        th(n^2) running time to loop over entire list within list"""
         keys = self.keys()
         values = self.values()
         items = []
@@ -167,7 +171,7 @@ class HashTable(object):
     def __iter__(self):
         """Make linked list iterable
 
-        Best case running time: Ω(1) if iteration is broken from the other side
+        Best case running time: om(1) if iteration is broken from the other side
        Worst case running time: O(n) if iteration continues for the length of the list"""
         for node in self.buckets:
             yield node
