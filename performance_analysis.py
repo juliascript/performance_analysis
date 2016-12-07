@@ -142,7 +142,7 @@ def analyseCountFunctionOfTrie(iterable, word):
 	return avg 
 
 if __name__ == "__main__":
-	# todo: fix bug of having the init function of some files return an int instead of a histogram (will affect the testing of the count function)
+	# todo: use timeit module instead of time
 	# todo: implement and test sorted linked list
 	# todo: implement and test binary search tree
 	# todo: implement binary search on all sorted data structures -- beware that you sorted list of tuples by count, not alphabetically
